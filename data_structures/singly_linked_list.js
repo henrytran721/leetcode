@@ -167,3 +167,12 @@ sll.push(3);
 sll.unshift(0);
 sll.reverse();
 console.log(sll.print());
+
+/**
+ * Big O of Singly Linked List
+ * 
+ * Insertion: O(1), we can insert anywhere without reindexing 
+ * Deletion: Best Case O(1), Worst Case O(n) because we have to remove from the end
+ * Search: O(n), we have to traverse through the list
+ * Access: O(n), we have to travese through the list
+ */
