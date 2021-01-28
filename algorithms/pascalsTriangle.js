@@ -37,3 +37,5 @@
  }
 
  console.log(generate(8));
+
+ // question 2 put no
