@@ -38,4 +38,7 @@
 
  console.log(generate(8));
 
- // question 2 put no
+/**
+ * Time Complexity: O(n^2) we have to go back to the previous row and iterate through the values
+ * Space Complexity: O(n ^ 2) we need store every value calculated in an array which is pushed to the overall array
+ */
