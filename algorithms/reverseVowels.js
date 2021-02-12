@@ -42,4 +42,4 @@ var reverseVowels = function(s) {
         }
         
         return characters.join('');
-    };
+};
