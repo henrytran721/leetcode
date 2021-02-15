@@ -8,3 +8,22 @@ var missingNumber = function(nums) {
         }
     }
 };
+
+// O(n log n) time O(1) space 
+
+var missingNumber = function(nums) {
+    let map = {};
+    
+    for(let num of nums) {
+        map[num] = true;
+    }
+    
+    for(let i = 0; i <= nums.length; i++) {
+        if(!(i in map)) {
+            return i;
+        }
+    }
+};
+
+// O(n) time
+// O(n) space

@@ -26,7 +26,7 @@ function searchMatrix(matrix, target){
   
   function binarySearch(arr, target) {
     let left = 0;
-    let right = arr.length - 1;
+    let right = arr.length;
     
     while(left < right) {
       let mid = Math.floor((left + right) / 2);
