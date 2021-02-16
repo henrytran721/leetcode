@@ -17,3 +17,6 @@ var getIntersectionNode = function(headA, headB) {
     
     return null;
 };
+
+// Time Complexity: O(n + m) we have to traverse both lists, storing the first list and searching in the set with the second list
+// Space Complexity: O(n) because we use a set to store nodes 
