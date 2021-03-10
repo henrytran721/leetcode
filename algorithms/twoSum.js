@@ -27,3 +27,17 @@ console.log(twoSum([2,7,11,15], 9));
  * Runtime: O(n) linear time based on how many elements we have in the array
  * Space: O(n) increases based on number of elements in the array we have to insert into the map
  */
+
+
+/** Brute Force Solution: Use two for loops, locking one number and checking the rest of the array with linear search
+ *  Time Complexity: O(n^2)
+ *  Space Complexity: O(1)
+ */
+
+ for(let i = 0; i < nums.length; i++) {
+    for(let j = 0; j < nums.length; j++) {
+        if(target - nums[j] === nums[i] && i !== j) {
+            return [i, j];
+        }
+    }
+}
