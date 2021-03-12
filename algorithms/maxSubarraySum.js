@@ -6,17 +6,20 @@
    Explanation: [4,-1,2,1] has the largest sum = 6.
  */
 
-var maxSubArray = function(nums) {
-    var currMax = -Infinity;
-    var max = 0;
+   var maxSubArray = function(nums) {
+    if(nums.length === 1) return nums[0];
+    if(!nums.length) return 0;
+    let currMax = 0;
+    let max = -Infinity;
+    
     for(let i = 0; i < nums.length; i++) {
-        // determine larger number between current index or currMax + current index
-        currMax = Math.max(nums[i], currMax + nums[i]);
-        // determine max of currMax and max
-        max = Math.max(max, currMax);
+        currMax = Math.max(currMax + nums[i], nums[i]);
+        max = Math.max(max, currMax)
     }
+    
     return max;
-};
+  };
+
 
 /**
  *  nums = [-2,1,-3,4,-1,2,1,-5,4]
