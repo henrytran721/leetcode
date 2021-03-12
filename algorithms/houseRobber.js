@@ -14,6 +14,7 @@
  *  map: {0:4, 1:3, 2:3, 3: 1, 4: 0}
  */
 
+// going backwards
  var rob = function(nums) {
      let map = {};
      map[nums.length] = 0;
@@ -28,3 +29,5 @@
   * Time Complexity: O(n)
   * Space Complexity: O(n)
   */
+
+ // House Robber moving forward
