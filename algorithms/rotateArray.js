@@ -18,16 +18,14 @@
 
 var rotate = function(nums, k) {
     for(let i = 0; i < k; i++) {
-        let poppedNum = nums.pop();
-        nums.unshift(poppedNum);
+        let end = nums.pop();
+        nums.unshift(end);
     }
-    return nums;
 };
 
+// [1,2,3,4,5,6,7]
+// run operation k number of times
+// remove from the end and add to the beginning
 
-/** Time Complexity: 
- *  O(k + n) because k determines how many steps we have to rotate and n is the number of items we have to iterate through
- * 2nd Solution: O(k + n) also because k determines how many  steps needed to rotate, once rotated we need to reindex each element in the array -> requires O(n) time
- * 
- * Space: O(1) doesn't require any extra space
- */
+// Time O(k)
+// Space O(1)
