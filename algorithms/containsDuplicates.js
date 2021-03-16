@@ -40,5 +40,22 @@ var containsDuplicate = function(nums) {
     
     return false;
     
-    // Time Complexity: O(n), Space Complexity: O(n)
+    // Time Complexity: O(n)
+    // Space Complexity: O(n)
 };
+
+
+// One Pass Solution, use the hash map insertion to our advantage
+
+var containsDuplicate = () => {
+    let hash = {};
+    for(let num of nums) {
+        if(hash[num] > 0) {
+            return true;
+        } else {
+            hash[num] = 1;
+        }
+    }
+    
+    return false;
+}
