@@ -8,7 +8,7 @@
 /**
  * set pointer, when we encounter head.next = val then set head.next to head.next.next
  * 
- * edge case: only one element in linked list, check if the element is equal to our val and set it to null
+ * edge case: only one element in linked list, check if the element is equal to our val and set head to be next element (essentially removing the head)
  */
 
 var removeElements = function(head, val) {
@@ -30,3 +30,8 @@ var removeElements = function(head, val) {
     
     return head;
 };
+
+
+
+// Time O(n)
+// Space O(1)
