@@ -1,25 +1,28 @@
-// Compress the string into this format: aaabbbbcc a3b4c2
+// Implement a method to perform basic string compression using the count of repeated characters. For example, the string aabcccccaaa returns a2b1c5a3.
 
-function compressStr(str) {
-    let i = 0; 
-    let j = 0;
-    let count = 0;
-    let compressed = '';
-    if(!str.length) return compressed;
-    while(i < str.length) {
-      if(str[i] !== str[j]) {
-        compressed += str[i] + count;
-        count = 1;
-        i = j;
-      } else {
-        count++;
-      }
-      j++
+
+// loop through string, if character is the same as the last increment count
+// if character is different, add to result and start over 
+
+function stringCompression(s) {
+  if(s.length === 1) return s[0] + '1';
+  let count = 1;
+  let result = ''
+
+  for(let i = 0; i < s.length; i++) {
+    if(s[i] === s[i + 1]) {
+      count++; 
+    } else {
+      result += s[i] + count;
+      count = 1;
     }
-  
-    return compressed;
   }
 
+  return result;
+
+} 
+
+console.log(stringCompression('aabcccccaaa')) // a2b1c5a3
 
 // Time Complexity: O(n)
 // Space Complexity: O(1)
