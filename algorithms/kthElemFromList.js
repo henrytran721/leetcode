@@ -1,4 +1,4 @@
-// write code to remove duplicates from an unsorted linked list
+// Implement an algorithm to find the kth to last element of a singly linked list
 
 
 class Node {
@@ -41,31 +41,35 @@ class Node {
       return this;
     }
   
-      removeDuplicates() {
-      let set = new Set();
-      let prev = new Node(null);
-  
+    findElem(i) {
+      if(i >= this.length || i < 0) return null;
+      let len = this.length;
+      let counter = 0;
       let current = this.head;
-      while(current !== null) {
-        console.log(prev);
-        if(set.has(current.val)) {
-           prev.next = current.next;
-        } else {
-          set.add(current.val);
-          prev = current;
+  
+      // find element from the end based on i
+      // if i == 0 return last element
+      if(i === 0) {
+        return this.tail;
+      } else {
+        let lenFromEnd = len - i - 1;
+        while(lenFromEnd !== counter) {
+          counter++;
+          current = current.next;
         }
-        current = prev.next;
+  
+        return current;
       }
     }
   
   }
   
   let sll = new SinglyLinkedList();
-  sll.push(3);
-  sll.push(3);
+  sll.push(0);
+  sll.push(1);
   sll.push(2);
-  sll.push(2);
-  sll.push(6);
+  sll.push(3);
+  sll.push(4);
+  sll.push(5);
   console.log(sll.print());
-  console.log(sll.removeDuplicates());
-  console.log(sll.print());
+  console.log(sll.findElem(0));
