@@ -37,3 +37,6 @@ var deleteDuplicates = function(head) {
 // s/    p
 // 0 --> 2 --> 4
 //   
+
+// Time O(n)
+// Space O(1)
