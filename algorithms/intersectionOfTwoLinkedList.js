@@ -2,21 +2,24 @@
 
 var getIntersectionNode = function(headA, headB) {
     let set = new Set();
+    let aPointer = headA;
+    let bPointer = headB;
     
-    while(headA !== null) {
-        set.add(headA);
-        headA = headA.next;
+    while(aPointer !== null) {
+        set.add(aPointer);
+        aPointer = aPointer.next;
     }
     
-    while(headB !== null) {
-        if(set.has(headB)) {
-            return headB;
+    while(bPointer !== null) {
+        if(set.has(bPointer)) {
+            return bPointer;
         }
-        headB = headB.next;
+        
+        bPointer = bPointer.next;
     }
-    
-    return null;
 };
+
+// loop through listA and add values to set 
 
 // Time Complexity: O(n + m) we have to traverse both lists, storing the first list and searching in the set with the second list
 // Space Complexity: O(n) because we use a set to store nodes 
