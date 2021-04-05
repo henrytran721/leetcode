@@ -8,17 +8,33 @@
 
    var maxSubArray = function(nums) {
     if(nums.length === 1) return nums[0];
-    if(!nums.length) return 0;
-    let currMax = 0;
-    let max = -Infinity;
+    var currMax = nums[0];
+    var max = nums[0];
     
-    for(let i = 0; i < nums.length; i++) {
-        currMax = Math.max(currMax + nums[i], nums[i]);
-        max = Math.max(max, currMax)
+    for(let i = 1; i < nums.length; i++) {
+        currMax = Math.max(nums[i], currMax + nums[i]);
+        max = Math.max(max, currMax);
     }
     
     return max;
-  };
+};
+
+// psuedo code 
+/**
+currMax storing curr maximum that we are looking at
+max storing the maximum value we have looked at 
+
+loop through the array, if curr number is > currMax
+ - replace the currMax
+ - every iteration set max to be the max of max and currMax (the largest we've seen)
+
+*/
+
+// [-2,1,-3,4,-1,2,1,-5,4]
+// currMax: 1
+// max: 6
+// currMax = Math.max(currVal, currMax + currVal) 1 vs 6 (1 + 5)
+// max = Math.max(max, currMax)
 
 
 /**

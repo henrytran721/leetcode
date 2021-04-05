@@ -18,15 +18,18 @@ Return true if n is a happy number, and false if not.
  */
 
  var happyNumber = function(n) {
-     if(n === 1) return true;
-     var set = new Set();
-     set.add(n);
-
-     while(true) {
-         n = n.toString().split('')
-            .map(num => parseInt(num))
-            .reduce((total, val) => total + (val ** 2));
-
+    if(n === 1) return true;
+    let set = new Set();
+    set.add(n);
+    
+    while(true) {
+        n = n.toString().split('')
+            .map((num) => parseInt(num))
+            .reduce((total, val) => {
+            return total + val ** 2
+        }, 0)
+        console.log(n);
+        
         if(n === 1) {
             return true;
         } else if(set.has(n)) {
@@ -34,7 +37,9 @@ Return true if n is a happy number, and false if not.
         } else {
             set.add(n);
         }
-     }
+    }
  }
+
+ console.log(happyNumber(19));
 
  
