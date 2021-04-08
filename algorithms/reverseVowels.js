@@ -43,3 +43,39 @@ var reverseVowels = function(s) {
         
         return characters.join('');
 };
+
+
+var reverseVowels = function(s) {
+    let vowels = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']);
+    let stack = [];
+    
+    for(let letter of s) {
+        if(vowels.has(letter)) {
+            stack.push(letter);
+        }
+    }
+    s = s.split('');
+    for(let i = 0; i < s.length; i++) {
+        if(vowels.has(s[i])) {
+            let replace = stack.pop();
+            s[i] = replace;
+        }
+    }
+    
+    return s.join('');
+};
+
+// Given a string s, reverse only all the vowels in the string and return it.
+// The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both cases.
+
+/** 
+
+- store vowels in a data structure (hashmap / array)
+- use a stack
+- use two pass to populate stack with vowels
+- loop through the string again and when a vowel is detected replace with last element from stack
+
+Time Complexity: O(n) depends on how long our string is
+Space Complexity: O(n) depends on how many vowels we are adding to our stack
+
+*/
