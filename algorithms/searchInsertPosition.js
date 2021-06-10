@@ -3,36 +3,32 @@
  * If not, return the index where it would be if it were inserted in order.
  */
 
-var searchInsert = function(nums, target) {
-    // use binary search approach splitting the array into two and moving pointers
-    var start = 0;
-    var end = nums.length - 1;
-    
+ var searchInsert = function(nums, target) {
+    let start = 0;
+    let end = nums.length;
+    // if found in binary search, return the index
     while(start < end) {
         var mid = Math.floor((start + end) / 2);
-        if(target < nums[mid]) {
-            end = mid - 1;
-        } else {
+        console.log(nums[start], nums[mid], nums[end]);
+        if(target === nums[mid]) {
+            return mid;
+        } else if(target > nums[mid]) {
             start = mid + 1;
+        } else {
+            end = mid;
         }
     }
-    
-    if(target === nums[mid]) {
-        return mid;
-    } else {
-        var count = 0;
+    // if not found in binary search, resort to this option
+    if(target !== nums[mid]) {
+        let counter = 0;
         for(let i = 0; i < nums.length; i++) {
-            if(nums[i] < target) {
-                count++;
+            if(target > nums[i]) {
+                counter++;
             }
         }
-        return count;
+        return counter;
     }
 };
 
-/** Big O
- * Best Case: O(logn) because we're using binary search and cutting the array in half every time to find target
- * Worst Case: O(n) if we don't find our value
- * 
- * Space: O(1)
- */
+// Best Case: Time O(log n) using binary search
+// Worst Case: O(n) using linear search if target isn't found
